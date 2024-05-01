@@ -6,6 +6,9 @@ import * as uuid from 'uuid';
 import { z } from "zod";
 import api from "../../api";
 import trackterra from '../../assets/trackterra.png';
+import TextWithBorders from "../../components/auth/text-with-borders.component";
+import ConfirmButton from "../../components/forms/confirm-button";
+import InputForm from "../../components/forms/input-form.component";
 import { clockInOutSchema } from "../../form-schemas/clock-in-out/clock-in-out.schema";
 
 type IClockInOutForm = z.infer<typeof clockInOutSchema>
@@ -84,7 +87,39 @@ export default () => {
 						<img className='h-[150px] w-[150px] text-center' src={trackterra} />
 				</div>
 
-			
+				<TextWithBorders text="Ingresar nuevo empleado" />
+				<form className="mt-4 bg-white p-5 rounded-md" onSubmit={handleSubmit(onSubmit)} >
+					<div className="flex flex-col md:w-full">
+						<label htmlFor="document" className="text-center p-5 font-semibold text-black text-[28px]">INGRESAR DATOS</label>
+						<InputForm
+							type="text"
+							name={'document'}
+							placeholder="Nombre"
+							error={errors.document}
+						/>
+						<div className="flex items-center gap-2 flex flex-col md:w-full">
+						</div>
+					</div>
+					<div className="flex flex-col md:w-full">
+						<InputForm
+							{...register('document')}
+							type="text"
+							name={'document'}
+							placeholder="Documento de identida"
+							error={errors.document}
+						/>
+						<div className="flex items-center gap-2 flex flex-col md:w-full">
+						</div>
+					</div>
+
+					<ConfirmButton
+						type="submit"
+						textButton={`${loading ? 'Cargando...' : 'ENVIAR DATOS'}`}
+						className="text-sm"
+						disabled={loading}
+					/>
+					<p style={{ color: 'green', textAlign: 'center' }}>{alert.msg}</p>
+				</form>
 			</div>
 		</div>
 	);

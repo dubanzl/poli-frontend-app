@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { FaRegQuestionCircle } from 'react-icons/fa';
 import { useForm } from "react-hook-form";
-import InputForm from "../../components/forms/input-form.component";
-import ConfirmButton from "../../components/forms/confirm-button";
-import TextWithBorders from "../../components/auth/text-with-borders.component";
-import { clockInOutSchema } from "../../form-schemas/clock-in-out/clock-in-out.schema";
-import { z } from "zod"
-import trackterra from '../../assets/trackterra.png'
-import { SearchResults } from "../../components/lists/basic.list";
-import * as interfaces from '../../interfaces';
+import { FaRegQuestionCircle } from 'react-icons/fa';
+import { z } from "zod";
 import api from "../../api";
+import trackterra from '../../assets/trackterra.png';
+import TextWithBorders from "../../components/auth/text-with-borders.component";
+import ConfirmButton from "../../components/forms/confirm-button";
+import InputForm from "../../components/forms/input-form.component";
+import { SearchResults } from "../../components/lists/basic.list";
+import { clockInOutSchema } from "../../form-schemas/clock-in-out/clock-in-out.schema";
+import * as interfaces from '../../interfaces';
 
 
 type IClockInOutForm = z.infer<typeof clockInOutSchema>
@@ -28,7 +28,7 @@ export default () => {
 				<div className='flex items-center justify-center pt-10 pb-5'>
 					<img className='h-[150px] w-[150px] text-center' src={trackterra} />
 				</div>
-				<TextWithBorders text="Empleado Entrada/Salida" />
+				<TextWithBorders text="Consultar empleados" />
 				<form className="mt-4 bg-white p-5 rounded-md" onSubmit={handleSubmit(onSubmit)} >
 					<div className="flex flex-col md:w-full">
 						<div className="flex items-stretch items-center justify-center ">

@@ -1,14 +1,14 @@
+import { Auth } from 'aws-amplify'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import SidebarSection from './sidebar-section.component'
-import { FaBars, FaChevronLeft } from 'react-icons/fa'
 import { BiCopy, BiGitCommit } from 'react-icons/bi'
+import { FaBars, FaChevronLeft } from 'react-icons/fa'
 import { FiLogOut } from 'react-icons/fi'
 import { connect } from 'react-redux'
+import { useNavigate } from "react-router-dom"
 import actions from '../actions'
-import * as interfaces from '../interfaces';
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from 'react'
-import { Auth } from 'aws-amplify'
+import * as interfaces from '../interfaces'
+import SidebarSection from './sidebar-section.component'
 
 
 function mapStateToProps(state: interfaces.redux.Store) {
@@ -47,11 +47,11 @@ const MyComponent: React.FC<Props> = (props) => {
 	}, [])
 
 	return (
-		<div className={`${active ? 'min-w-[256px]' : 'min-w-[60px]'} sticky bg-gradient-to-b from-[#E6E6E6] to-[#E6E6E6] top-0 rigth-0 border border-[#B2BBB6] rounded-r-xl h-screen`}>
+		<div className={`${active ? 'min-w-[256px]' : 'min-w-[60px]'} sticky bg-gradient-to-b from-[#E6E6E6] to-[#E6E6E6] top-0 rigth-0 border border-[#1c9151] rounded-r-xl h-screen`}>
 			<div className='flex flex-col justify-between h-full text-[#686868] bg-white rounded-md'>
 				<div>
 					<div className={`${active ? 'flex h-[57px]' : 'hidden'} justify-between items-center px-7 py-4 border-b-2 border-b-[#B2BBB6]`}>
-						<span className='font-semibold text-black text-[24px]'>TrackTerra</span>
+						<span className='font-semibold text-black text-[24px]'>Empleados</span>
 						<div className='hidden lg:flex cursor-pointer' onClick={() => showMenu()}>
 							<FaChevronLeft />
 							<FaChevronLeft className='-ml-2' />
